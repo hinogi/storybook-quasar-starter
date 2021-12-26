@@ -1,5 +1,6 @@
 const path = require('path');
 const aliases = require('./aliases');
+const tsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -19,10 +20,8 @@ module.exports = {
     },
   },
   webpackFinal: async (config, { configType }) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      ...aliases(),
-    };
+    config.resolve.plugins = config.resolve.plugins || [];
+    config.resolve.plugins.push(new tsconfigPathsPlugin({}));
 
     config.module.rules.push({
       enforce: 'pre',
@@ -38,6 +37,12 @@ module.exports = {
       test: /\.s(c|a)ss$/,
       use: ['css-loader', 'sass-loader'],
       include: path.resolve(__dirname, '../'),
+    });
+
+    config.module.rules.push({
+      test: /\.ts$/,
+      loader: 'ts-loader',
+      options: { appendTsSuffixTo: [/\.vue$/] },
     });
 
     return config;

@@ -18,6 +18,7 @@ module.exports = {
     tsconfigRootDir: __dirname,
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
     sourceType: 'module', // Allows for the use of imports
+    createDefaultProgram: true,
   },
 
   env: {
@@ -96,6 +97,13 @@ module.exports = {
         '@typescript-eslint/no-unsafe-call': 'off',
       },
     },
+    {
+      files: ['**/stories/*.*'],
+      rules: {
+        '@typescript-eslint/no-unsafe-assignment': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+      },
+    },
   ],
-  include: ['src/**/*.ts', 'src/**/*.js', 'src/**/*.vue'],
+  ignorePatterns: ['.storybook/*', 'generated-stories-entry.js'],
 };
