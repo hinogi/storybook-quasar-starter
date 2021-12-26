@@ -1,12 +1,9 @@
-import { QLayout, QPageContainer, QPage, QSelect, QBtn } from 'quasar';
-
 export default {
   title: 'Quasar',
 };
 
 export const Components = () => ({
   title: 'QuasarComponents',
-  components: { QLayout, QPageContainer, QPage, QSelect, QBtn },
   template: `<q-layout>
     <q-page-container>
       <q-page class="full-height full-width justify-center items-center q-pa-xl">
