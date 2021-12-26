@@ -34,6 +34,7 @@
     "babel-loader": "^8.2.3",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^8.1.0",
+    "eslint-loader": "^4.0.2",
     "eslint-plugin-vue": "^7.0.0",
     "vue-loader": "^16.8.3"
   },
