@@ -41,6 +41,8 @@ module.exports = {
         {
           loader: 'sass-loader',
           options: {
+            // If you want to add global variables
+            // additionalData: `@import 'src/css/quasar.variables.sass'`,
             sassOptions: {
               indentedSyntax: true,
             },
