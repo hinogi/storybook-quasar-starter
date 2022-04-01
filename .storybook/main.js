@@ -35,7 +35,18 @@ module.exports = {
 
     config.module.rules.push({
       test: /\.s(c|a)ss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader'],
+      use: [
+        'style-loader',
+        'css-loader',
+        {
+          loader: 'sass-loader',
+          options: {
+            sassOptions: {
+              indentedSyntax: true,
+            },
+          },
+        },
+      ],
       include: path.resolve(__dirname, '../'),
     });
 
